@@ -1,4 +1,4 @@
-# OpenCode Harness
+# Opencode Cindy Plugin
 
 > 将本机安装的 `opencode` 接入 Cindy，作为 Cindy 任务执行引擎（Harness / ACP）。
 
