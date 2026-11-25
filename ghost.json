@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "minCindyVersion": "0.1.145",
+  "id": "opencode-harness",
+  "name": "OpenCode Harness",
+  "description": "把本机 opencode CLI 作为 Cindy 任务执行引擎。",
+  "whenToUse": "当用户希望用本机 opencode 作为 Cindy 的任务执行引擎，或把任务交给 OpenCode ACP 处理时。",
+  "icon": "assets/icon.png",
+  "version": "1.0.0",
+  "kind": "chip",
+  "entry": "main.js",
+  "settingsHtml": "settings.html",
+  "node": {
+    "entry": "node/worker.cjs",
+    "protocol": "json-rpc-stdio",
+    "lifecycle": "on-demand",
+    "idleTimeoutSeconds": 120,
+    "entries": [
+      "node/acp.cjs"
+    ]
+  },
+  "harnesses": [
+    {
+      "id": "opencode",
+      "name": "OpenCode ACP",
+      "description": "在本机运行 opencode，由 Cindy 统一驱动 ACP 会话。",
+      "protocol": "acp",
+      "entry": "node/acp.cjs",
+      "locales": {
+        "zh-CN": {
+          "name": "OpenCode ACP",
+          "description": "在本机运行 opencode，由 Cindy 统一驱动 ACP 会话。"
+        }
+      }
+    }
+  ]
+}
